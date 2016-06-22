@@ -9,7 +9,7 @@ package tdd;
  *
  * @author Alex
  */
-public class Money {
+public abstract class Money {
     protected int amount;
     
     public boolean equals(Object object){
@@ -17,4 +17,14 @@ public class Money {
         return this.amount == money.amount 
                 && this.getClass().equals(money.getClass());
     }
+    
+    static public Dollar dollar(int amount){
+        return new Dollar(amount);
+    }
+    
+    static public Franc franc(int amount){
+        return new Franc(amount);
+    }
+    
+    abstract public Money times(int multiplier);
 }
