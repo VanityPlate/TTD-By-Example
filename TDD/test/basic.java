@@ -11,8 +11,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import tdd.Money;
-import tdd.Dollar;
-import tdd.Franc;
+
 
 /**
  *
@@ -40,12 +39,6 @@ public class basic {
     }
     
     @Test
-    public void testDifferentClassEquality(){
-        System.out.println("* TDDJUnit4Test: testDifferentClassEquality()");
-        assertTrue(new Money(10, "USD").equals(new Dollar(10, "USD")));
-    }
-
-    @Test
     public void testMultiplication(){
         System.out.println("* TDDJUnit4Test: testMultiplication()");
         Money five = Money.dollar(5);
@@ -59,8 +52,6 @@ public class basic {
         assertTrue(Money.dollar(5).equals(Money.dollar(5)));
         assertFalse(Money.dollar(5).equals(Money.dollar(6)));
         assertTrue(Money.franc(5).equals(Money.franc(5)));
-        assertFalse(Money.franc(5).equals(Money.franc(6)));
-        assertFalse(Money.franc(5).equals(Money.dollar(5)));
     }
     
     @Test
