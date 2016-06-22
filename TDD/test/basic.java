@@ -38,6 +38,12 @@ public class basic {
     @After
     public void tearDown() {
     }
+    
+    @Test
+    public void testDifferentClassEquality(){
+        System.out.println("* TDDJUnit4Test: testDifferentClassEquality()");
+        assertTrue(new Money(10, "USD").equals(new Dollar(10, "USD")));
+    }
 
     @Test
     public void testMultiplication(){
