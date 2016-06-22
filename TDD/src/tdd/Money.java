@@ -9,14 +9,11 @@ package tdd;
  *
  * @author Alex
  */
-public class Dollar extends Money{
+public class Money {
+    protected int amount;
     
-    
-    public Dollar(int amount){
-        this.amount = amount;
-    }
-    
-    public Dollar times(int multiplier){
-        return new Dollar(this.amount * multiplier);
+    public boolean equals(Object object){
+        Money money = (Money) object;
+        return this.amount == money.amount;
     }
 }

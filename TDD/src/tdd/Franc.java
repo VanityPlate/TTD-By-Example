@@ -9,14 +9,13 @@ package tdd;
  *
  * @author Alex
  */
-public class Dollar extends Money{
-    
-    
-    public Dollar(int amount){
+public class Franc extends Money{
+       
+    public Franc(int amount){
         this.amount = amount;
     }
     
-    public Dollar times(int multiplier){
-        return new Dollar(this.amount * multiplier);
+    public Franc times(int multiplier){
+        return new Franc(this.amount * multiplier);
     }
 }
