@@ -11,6 +11,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import tdd.Money;
+import tdd.Expression;
+import tdd.Bank;
 
 
 /**
@@ -60,6 +62,16 @@ public class basic {
         Money five = Money.franc(5);
         assertEquals(Money.franc(10), five.times(2));
         assertEquals(Money.franc(15), five.times(3));        
+    }
+    
+    @Test
+    public void testSimpleAddition(){
+        System.out.println("* TDDJUnit4Test: testSimpleAddition");
+        Money five = Money.dollar(5);
+        Expression sum = five.plus(five);
+        Bank bank = new Bank();
+        Money reduced = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(10), reduced);
     }
     
     @Test

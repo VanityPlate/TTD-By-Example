@@ -9,7 +9,7 @@ package tdd;
  *
  * @author Alex
  */
-public class Money {
+public class Money implements Expression{
     protected int amount;
     protected String currency;
     
@@ -26,6 +26,10 @@ public class Money {
         Money money = (Money) object;
         return this.amount == money.amount 
                 && this.currency.equals(money.currency);
+    }
+    
+    public Expression plus(Money append){
+        return new Money(this.amount + append.amount, this.currency);
     }
     
     static public Money dollar(int amount){
