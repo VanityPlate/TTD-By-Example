@@ -21,7 +21,11 @@ public class Money implements Expression{
     public String toString(){
         return amount +  " " + currency;
     }
-            
+      
+    public Money reduce(String to){
+        return this;
+    }
+    
     public boolean equals(Object object){
         Money money = (Money) object;
         return this.amount == money.amount 
@@ -29,7 +33,7 @@ public class Money implements Expression{
     }
     
     public Expression plus(Money append){
-        return new Money(this.amount + append.amount, this.currency);
+        return new Sum(this, append);
     }
     
     static public Money dollar(int amount){

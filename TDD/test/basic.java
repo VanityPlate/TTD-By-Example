@@ -13,6 +13,7 @@ import static org.junit.Assert.*;
 import tdd.Money;
 import tdd.Expression;
 import tdd.Bank;
+import tdd.Sum;
 
 
 /**
@@ -41,6 +42,24 @@ public class basic {
     }
     
     @Test
+    public void testReduceMoney(){
+        System.out.println("* TDDJUnit4Test: testReduceMoney()");
+        Bank bank = new Bank();
+        Money result = bank.reduce(Money.dollar(1), "USD");
+        assertEquals(Money.dollar(1), result);
+    }
+    
+    @Test
+    public void testPlusReturnsSum(){
+        System.out.println("* TDDJUnit4Test: testPlusReturnsSum()");
+        Money five = Money.dollar(5);
+        Expression result = five.plus(five);
+        Sum sum = (Sum) result;
+        assertEquals(sum.augend, five);
+        assertEquals(sum.addend, five);
+    }
+    
+    @Test
     public void testMultiplication(){
         System.out.println("* TDDJUnit4Test: testMultiplication()");
         Money five = Money.dollar(5);
@@ -62,6 +81,15 @@ public class basic {
         Money five = Money.franc(5);
         assertEquals(Money.franc(10), five.times(2));
         assertEquals(Money.franc(15), five.times(3));        
+    }
+    
+    @Test
+    public void testReducedSum(){
+        System.out.println("* TDDJUnit4Test: testReducedSum()");
+        Expression sum = new Sum(Money.dollar(3), Money.dollar(4));
+        Bank bank = new Bank();
+        Money result = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(7), result);
     }
     
     @Test

@@ -10,5 +10,7 @@ package tdd;
  * @author Alex
  */
 public interface Expression {
+ 
+    Money reduce(String to);
     
 }
